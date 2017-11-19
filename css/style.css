@@ -1,0 +1,247 @@
+/******************General
+******************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 1.2rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: rgb(66, 244, 170);
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+}
+
+.background {
+  background-color: rgb(107, 46, 130);
+}
+
+.heading {
+  padding-bottom: 50px;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+main{
+  flex: 1 0 auto;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/****************** GAME STYLES
+******************/
+
+.orange {
+  color: rgb(239, 147, 67);
+}
+
+.score span {
+  margin-left: 15px;
+}
+
+.bestScore span {
+  margin-left: 15px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  perspective: 3000px;
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.card {
+  font-family: "Dosis";
+  font-weight: 800;
+  height: 100px;
+  max-width: 100px;
+  min-width: 75px;
+  width: 50%;
+  display: block;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 2%;
+  transform-style: preserve-3d;
+  transition: transform .7s;
+  float: left;
+  cursor: pointer;
+}
+
+.front {
+  font-size: 1.6rem;
+  color: rgb(107, 46, 130);
+  background-color: rgb(239, 147, 67);
+  border: 3px solid rgb(66, 244, 170);
+  padding-top: 35%;
+}
+
+.back{
+  font-size: 4rem;
+  color: rgb(107, 46, 130);
+  background-color: rgb(66, 244, 170);
+  border: 3px solid rgb(239, 147, 67);
+  transform: rotateY(180deg);
+}
+
+.card div {
+  margin: 0;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card p {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.select {
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 2rem;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: rgb(66, 244, 170);
+  border: 5px solid rgb(239, 147, 67);
+  color: white;
+  height: 90px;
+  width: 255px;
+  margin: 4px;
+  font-size: 4rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 13%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/****************** ANIMATIONS
+******************/
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+@keyframes flash {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: default;
+  }
+}
+
+.match {
+  animation: 1s flash .7s ease-in-out;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.slowFade {
+  animation: 1.5s ease-out fade;
+  animation-fill-mode: forwards;
+}
+
+@keyframes win {
+  0% {
+    font-size: inherit;
+    opacity: 0;
+  }
+  100% {
+    font-size: 4rem;
+    opacity: 1;
+  }
+}
+
+.win {
+  animation: 1s win ease-in;
+  animation-fill-mode: forwards;
+  color: rgb(239, 147, 67);
+  margin-bottom: 30px;
+}
+
+@keyframes win2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.win2 {
+  animation: 1s ease-in 1.5s win2;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+/*
+The following shiny button animation is found here: https://cssanimation.rocks/pseudo-elements/
+*/
+
+button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
+  transform: rotateZ(90deg) translate(-5em, 7.5em);
+}
+
+@keyframes sheen {
+  100% {
+    transform: rotateZ(90deg) translate(1em, -9em);
+  }
+}
+
+button:hover::after, button:focus::after {
+  animation: sheen 1.5s forwards;
+}
+
+/******************Footer
+******************/
+
+.copyright {
+  text-align: center;
+  padding-top: 20px;
+}
