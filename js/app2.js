@@ -108,13 +108,6 @@ function gameMode() {
     }
 } //gameMode
 
-// function startGame(numberOfCards) {
-//     clear();
-//     createCardArray(numberOfCards);
-//     createCards();
-//     cardClick();
-// } // startGame
-
 function clear() {
     let cardsDiv = document.querySelector('.cards');
     cardsDiv.innerHTML = '';
